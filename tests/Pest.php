@@ -16,6 +16,8 @@ pest()->extend(Tests\DuskTestCase::class)
 |
 */
 
+pest()->browser()->timeout(10000);
+
 pest()->extend(Tests\TestCase::class)
     // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->in('Feature', 'Unit');

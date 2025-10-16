@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,5 +15,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 // Protected Routes
 Route::middleware('auth')->group(function () {
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 });
