@@ -17,5 +17,9 @@ it('shows the user tier correctly in the UI', function () {
         ->fill('password', 'password')
         ->press('Sign In')
         ->assertSee('Users Management')
-        ->assertSee('Bronze');
+        ->assertSee('Bronze')
+        ->assertDontSee('Silver')
+        ->assertDontSee('Gold')
+        ->assertDontSee('Platinum')
+        ->assertDontSee('Diamond');
 });
