@@ -44,8 +44,6 @@ it('assigns Silver tier when total orders between 500 and 1000', function () {
         'amount' => fake()->numberBetween(100, 200),
     ]);
 
-    dump($user->getTotalOrderAmountForUser());
-
     expect($user->loyaltyTier())->toBe('Silver');
 });
 
