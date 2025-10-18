@@ -18,7 +18,7 @@ it('assigns None tier when total orders between 0 and 100', function () {
     Order::factory()->count(5)->create([
         'user_id' => $user->id,
         'amount' => function () {
-            return fake()->numberBetween(0, 20);
+            return fake()->numberBetween(0, 19);
         },
     ]);
 
@@ -30,7 +30,7 @@ it('assigns Bronze tier when total orders between 100 and 500', function () {
 
     Order::factory()->count(5)->create([
         'user_id' => $user->id,
-        'amount' => fake()->numberBetween(20, 100),
+        'amount' => fake()->numberBetween(20, 99),
     ]);
 
     expect($user->loyaltyTier())->toBe('Bronze');
@@ -41,7 +41,7 @@ it('assigns Silver tier when total orders between 500 and 1000', function () {
 
     Order::factory()->count(5)->create([
         'user_id' => $user->id,
-        'amount' => fake()->numberBetween(100, 200),
+        'amount' => fake()->numberBetween(100, 199),
     ]);
 
     expect($user->loyaltyTier())->toBe('Silver');
@@ -52,7 +52,7 @@ it('assigns Gold tier when total orders between 1000 and 5000', function () {
 
     Order::factory()->count(5)->create([
         'user_id' => $user->id,
-        'amount' => fake()->numberBetween(200, 1000),
+        'amount' => fake()->numberBetween(200, 999),
     ]);
 
     expect($user->loyaltyTier())->toBe('Gold');
@@ -74,7 +74,7 @@ it('assigns Diamond tier when total orders above 10000', function () {
 
     Order::factory()->count(15)->create([
         'user_id' => $user->id,
-        'amount' => fake()->numberBetween(1000, 10000),
+        'amount' => fake()->numberBetween(1000, 9999),
     ]);
 
     expect($user->loyaltyTier())->toBe('Diamond');

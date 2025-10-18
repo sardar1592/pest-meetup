@@ -11,7 +11,7 @@ beforeEach(function () {
 
     $this->orders = Order::factory()->count(5)->create([
         'user_id' => $this->user->id,
-        'amount' => fake()->numberBetween(20, 100),
+        'amount' => fake()->numberBetween(20, 99),
     ]);
 });
 

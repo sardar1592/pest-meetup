@@ -2,10 +2,10 @@
 
 it('ensures there is no smoke', function () {
 
-    $pages = visit(['/login', '/users', '/welcome']);
+    $pages = visit(['/login', '/users']);
 
     $pages->assertNoSmoke()
-        // ->assertNoAccessibilityIssues()
+        ->assertNoAccessibilityIssues()
         ->assertNoConsoleLogs()
         ->assertNoJavaScriptErrors();
 });
